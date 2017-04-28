@@ -9,20 +9,7 @@
         form.form = {
           components: [
             {
-              conditional: {
-                eq: "",
-                when: null,
-                show: ""
-              },
               type: "selectboxes",
-              validate: {
-                required: false
-              },
-              clearOnHide: true,
-              hidden: false,
-              persistent: true,
-              protected: false,
-              inline: false,
               dataSrc: 'values',
               labelProperty: 'fixedLabel',
               data: {
@@ -43,39 +30,19 @@
               },
               key: "fixedCheckbox",
               label: "Checkbox with fixed datasource",
-              tableView: true,
-              input: true
             },
             {
-              conditional: {
-                eq: "",
-                when: null,
-                show: ""
-              },
               type: "selectboxes",
-              validate: {
-                required: false
-              },
-              clearOnHide: true,
-              hidden: false,
-              persistent: true,
-              protected: false,
-              inline: false,
               dataSrc: 'json',
               valueProperty: 'jsonValue',
               labelProperty: 'jsonLabel',
               key: "jsonCheckbox",
               label: "Checkbox with json datasource",
-              tableView: true,
-              input: true,
               data: {
-                json: '[{ "jsonLabel": "Json", "jsonValue": "json" }, { "jsonLabel": "Datasource", "jsonValue": "datasource"  }, { "jsonLabel": "Wolox", "jsonValue": "wolox"  }]',
+                json: '[{ "jsonLabel": "Json", "jsonValue": "json" }, { "jsonLabel": "Checkbox", "jsonValue": "checkbox"  }]',
               }
             },
             {
-              hidden: false,
-              input: true,
-              tableView: false,
               inputType: "radio",
               label: "Radio with Json datasource",
               key: "jsonRadio",
@@ -83,60 +50,24 @@
               labelProperty: 'label',
               dataSrc: "json",
               data: {
-                json: '[{ "label": "Radio"}, { "label": "Json" }, { "label": "Datasource" }]',
-              },
-              protected: false,
-              persistent: true,
-              clearOnHide: true,
-              validate: {
-                required: true,
-                custom: "",
-                customPrivate: false
+                json: '[{ "label": "One"}, { "label": "Two" }, { "label": "Three" }]',
               },
               type: "radio",
-              tags: [],
-              conditional: {
-                show: "",
-                when: null,
-                eq: ""
-              },
-              customClass: "role",
-              inline: false
             },
             {
-              hidden: false,
-              input: true,
-              tableView: false,
               inputType: "radio",
               label: "Radio with fixed datasource",
               key: "fixedRadio",
-              valueProperty: 'label',
               labelProperty: 'label',
               dataSrc: "values",
               data: {
                 values: [
-                  { label: 'Radio', value: 'radio'},
-                  { label: 'Fixed', value: 'fixed' },
-                  { label: 'Datasource', value: 'datasource' }
+                  { label: 'Uno', value: 'uno'},
+                  { label: 'Dos', value: 'dos' },
+                  { label: 'Tres', value: 'tres' }
                 ],
               },
-              protected: false,
-              persistent: true,
-              clearOnHide: true,
-              validate: {
-                required: true,
-                custom: "",
-                customPrivate: false
-              },
               type: "radio",
-              tags: [],
-              conditional: {
-                show: "",
-                when: null,
-                eq: ""
-              },
-              customClass: "role",
-              inline: false
             },
             {
               type: 'button',
@@ -154,9 +85,9 @@
     </script>
   </head>
   <body>
-    <div style='display: flex; flex-direction: row; justify-content: space-around;'>
-      <div id='formio'></div>
-      <div id='form-value'></div>
+    <div style='display: flex; flex-direction: row;'>
+      <div id='formio' style='margin: 50px'></div>
+      <div id='form-value' style='margin: 50px'></div>
     </div>
   </body>
 </html>

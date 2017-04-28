@@ -5168,7 +5168,7 @@ var RadioComponent = exports.RadioComponent = function (_BaseWithDatasourceCo) {
           input.setAttribute(key, value);
         });
         _this2.addInput(input, label);
-        label.appendChild(document.createTextNode(item.label));
+        label.appendChild(document.createTextNode(_this2.itemLabel(item)));
         labelWrapper.appendChild(label);
         inputGroup.appendChild(labelWrapper);
       });

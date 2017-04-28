@@ -22,4 +22,4 @@ gulp.task('styles', require('./gulp/styles')(gulp, plugins));
 gulp.task('watch', require('./gulp/watch')(gulp, plugins));
 gulp.task('build', gulpsync.sync([['clean'], 'babel', ['icons', 'styles', 'scripts', 'scripts-utils', 'scripts-form', 'scripts-wizard', 'scripts-embed']]));
 gulp.task('default', ['build', 'watch']);
-gulp.task('scripts:all', ['scripts', 'scripts-utils', 'scripts-form', 'scripts-wizard', 'scripts-embed']);
+gulp.task('scripts:all', gulpsync.sync(['babel', ['scripts-form']]));

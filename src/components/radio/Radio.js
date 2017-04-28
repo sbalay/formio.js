@@ -40,7 +40,7 @@ export class RadioComponent extends BaseWithDatasourceComponent {
         input.setAttribute(key, value);
       });
       this.addInput(input, label);
-      label.appendChild(document.createTextNode(item.label));
+      label.appendChild(document.createTextNode(this.itemLabel(item)));
       labelWrapper.appendChild(label);
       inputGroup.appendChild(labelWrapper);
     });

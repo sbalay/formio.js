@@ -2,13 +2,10 @@
   <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://unpkg.com/formiojs@2.3.4/dist/formio.form.min.css'>
-    <script src='dist/formio.form.js'></script>
+    <script src='http://sbalay-formio.s3-website-sa-east-1.amazonaws.com/dist/formio.form.min.js'></script>
     <script type='text/javascript'>
       window.onload = function() {
-        // var form = new FormioForm(document.getElementById('formio'));
-        // form.src = 'https://examples.form.io/example';
-
-        var form = new FormioForm(document.getElementById('formio2'));
+        var form = new FormioForm(document.getElementById('formio'));
         form.form = {
           components: [
             {
@@ -27,67 +24,67 @@
               protected: false,
               inline: false,
               dataSrc: 'values',
-              data: { values: [
-                {
-                  label: "sarasa",
-                  value: "sarasa"
-                },
-                {
-                  label: "ueueueue",
-                  value: "ueueueue"
-                },
-                {
-                  label: "trulele",
-                  value: "trulele"
-                },
-                {
-                  label: "cholulo",
-                  value: "cholulo"
-                }
-              ]},
-              key: "checkboxes",
-              label: "checkboxes",
+              labelProperty: 'fixedLabel',
+              data: {
+                values: [
+                  {
+                    fixedLabel: "Fixed",
+                    value: "fixed"
+                  },
+                  {
+                    fixedLabel: "Datasource",
+                    value: "datasource"
+                  },
+                  {
+                    fixedLabel: "Wolox",
+                    value: "wolox"
+                  }
+                ]
+              },
+              key: "fixedCheckbox",
+              label: "Checkbox with fixed datasource",
               tableView: true,
               input: true
+            },
+            {
+              conditional: {
+                eq: "",
+                when: null,
+                show: ""
+              },
+              type: "selectboxes",
+              validate: {
+                required: false
+              },
+              clearOnHide: true,
+              hidden: false,
+              persistent: true,
+              protected: false,
+              inline: false,
+              dataSrc: 'json',
+              valueProperty: 'jsonValue',
+              labelProperty: 'jsonLabel',
+              key: "jsonCheckbox",
+              label: "Checkbox with json datasource",
+              tableView: true,
+              input: true,
+              data: {
+                json: '[{ "jsonLabel": "Json", "jsonValue": "json" }, { "jsonLabel": "Datasource", "jsonValue": "datasource"  }, { "jsonLabel": "Wolox", "jsonValue": "wolox"  }]',
+              }
             },
             {
               hidden: false,
               input: true,
               tableView: false,
               inputType: "radio",
-              label: "Role",
-              key: "role",
+              label: "Radio with Json datasource",
+              key: "jsonRadio",
               valueProperty: 'label',
               labelProperty: 'label',
               dataSrc: "json",
               data: {
-                custom: "",
-                resource: "58ff5a0a89315dda3e647a54",
-                url: "",
-                values: [
-                  {
-                    label: "",
-                    value: ""
-                  }
-                ],
-                json: '[{ "label": "sarasa4"}, { "label": "sarasa3" }, { "label": "sarasa2" }]',
+                json: '[{ "label": "Radio"}, { "label": "Json" }, { "label": "Datasource" }]',
               },
-              // dataSrc: 'values',
-              // data: { values: [
-              //   {
-              //     value: "developer",
-              //     label: "Developer"
-              //   },
-              //   {
-              //     value: "leadDeveloper",
-              //     label: "Lead Developer"
-              //   },
-              //   {
-              //     value: "projectArchitect",
-              //     label: "Project Architect"
-              //   }
-              // ]},
-              defaultValue: "developer",
               protected: false,
               persistent: true,
               clearOnHide: true,
@@ -107,71 +104,39 @@
               inline: false
             },
             {
-              type: 'textfield',
-              key: 'firstName',
-              label: 'First Name',
-              placeholder: 'Enter your first name.',
-              input: true
-            },
-            {
-              type: 'textfield',
-              key: 'lastName',
-              label: 'Last Name',
-              placeholder: 'Enter your last name',
-              input: true
-            },
-            {
-              type: 'textfield',
-              key: 'lastName',
-              label: 'Last Name',
-              placeholder: 'Enter your last name',
-              input: true
-            },
-            {
-              "hidden": false,
-              "lockKey": true,
-              "conditional": {
-                "eq": "",
-                "when": null,
-                "show": ""
-              },
-              "tags": [
-
-              ],
-              "type": "select",
-              "validate": {
-                "required": false
-              },
-              "clearOnHide": true,
-              "persistent": true,
-              "unique": false,
-              "protected": false,
-              "multiple": false,
-              "template": "<span>{{ item.label }}</span>",
-              "authenticate": false,
-              "filter": "contains",
-              "refreshOn": "",
-              "defaultValue": "",
-              "valueProperty": "label",
-              "dataSrc": "json",
-              "data": {
-                "custom": "",
-                "resource": "58ff5a0a89315dda3e647a54",
-                "url": "",
-                "values": [
-                  {
-                    "label": "",
-                    "value": ""
-                  }
+              hidden: false,
+              input: true,
+              tableView: false,
+              inputType: "radio",
+              label: "Radio with fixed datasource",
+              key: "fixedRadio",
+              valueProperty: 'label',
+              labelProperty: 'label',
+              dataSrc: "values",
+              data: {
+                values: [
+                  { label: 'Radio', value: 'radio'},
+                  { label: 'Fixed', value: 'fixed' },
+                  { label: 'Datasource', value: 'datasource' }
                 ],
-                "json": '[{ "label": "sarasa4"}, { "label": "sarasa3" }, { "label": "sarasa2" }]',
               },
-              "placeholder": "asd",
-              "key": "role2",
-              "label": "Role",
-              "tableView": true,
-              "input": true,
-              "limit": "4"
+              protected: false,
+              persistent: true,
+              clearOnHide: true,
+              validate: {
+                required: true,
+                custom: "",
+                customPrivate: false
+              },
+              type: "radio",
+              tags: [],
+              conditional: {
+                show: "",
+                when: null,
+                eq: ""
+              },
+              customClass: "role",
+              inline: false
             },
             {
               type: 'button',
@@ -181,12 +146,17 @@
             }
           ]
         };
+        var formValuesLabel = document.getElementById('form-value');
+        setInterval(function () {
+          formValuesLabel.innerHTML = JSON.stringify(form.getValue());
+        }, 200);
       };
     </script>
   </head>
   <body>
-    <!-- <div id='formio'></div>
-    <hr><hr><hr><hr><hr><hr><hr><hr><hr><hr><hr> -->
-    <div id='formio2'></div>
+    <div style='display: flex; flex-direction: row; justify-content: space-around;'>
+      <div id='formio'></div>
+      <div id='form-value'></div>
+    </div>
   </body>
 </html>

@@ -664,7 +664,7 @@ export class BaseComponent {
    *
    * @return {HTMLElement} - The created element.
    */
-  ce(name, type, attr) {
+  ce(name, type, attr) { // sebaseba: ACA ESTA DEFINIDO ce
     // Allow for template overrides.
     let element = document.createElement(type);
     let compType = this.component.type || this.type;

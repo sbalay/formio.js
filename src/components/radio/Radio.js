@@ -1,6 +1,6 @@
-import { BaseComponent } from '../base/Base';
+import { BaseWithJsonItemsComponent } from '../base/BaseWithJsonItems';
 import _each from 'lodash/each';
-export class RadioComponent extends BaseComponent {
+export class RadioComponent extends BaseWithJsonItemsComponent {
   elementInfo() {
     let info = super.elementInfo();
     info.type = 'input';
@@ -10,11 +10,16 @@ export class RadioComponent extends BaseComponent {
   }
 
   createInput(container) {
+    this.updateItems(container); // sebaseba: agregar los items a inputgroup
+  }
+
+  setItems(items, container) {
     let inputGroup = this.ce('inputGroup', 'div', {
       class: 'input-group'
     });
     let inputType = this.component.inputType;
-    _each(this.component.values, (value) => {
+    _each(items, (item) => {
+      const value = this.itemValue(item);
       var wrapperClass = (this.component.inline ? inputType + '-inline' : inputType);
       let labelWrapper = this.ce('labelWrapper', 'div', {
         class: wrapperClass
@@ -24,9 +29,9 @@ export class RadioComponent extends BaseComponent {
       });
 
       // Determine the attributes for this input.
-      let inputId = this.inputId + '-' + value.value;
+      let inputId = this.inputId + '-' + value;
       this.info.attr.id = inputId;
-      this.info.attr.value = value.value;
+      this.info.attr.value = value;
       label.setAttribute('for', this.info.attr.id);
 
       // Create the input.
@@ -35,11 +40,13 @@ export class RadioComponent extends BaseComponent {
         input.setAttribute(key, value);
       });
       this.addInput(input, label);
-      label.appendChild(document.createTextNode(value.label));
+      label.appendChild(document.createTextNode(item.label));
       labelWrapper.appendChild(label);
       inputGroup.appendChild(labelWrapper);
     });
-    container.appendChild(inputGroup);
+    if (container) {
+      container.appendChild(inputGroup);
+    }
   }
 
   getValue() {

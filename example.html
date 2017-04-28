@@ -12,6 +12,45 @@
         form.form = {
           components: [
             {
+              conditional: {
+                eq: "",
+                when: null,
+                show: ""
+              },
+              type: "selectboxes",
+              validate: {
+                required: false
+              },
+              clearOnHide: true,
+              hidden: false,
+              persistent: true,
+              protected: false,
+              inline: false,
+              dataSrc: 'values',
+              data: { values: [
+                {
+                  label: "sarasa",
+                  value: "sarasa"
+                },
+                {
+                  label: "ueueueue",
+                  value: "ueueueue"
+                },
+                {
+                  label: "trulele",
+                  value: "trulele"
+                },
+                {
+                  label: "cholulo",
+                  value: "cholulo"
+                }
+              ]},
+              key: "checkboxes",
+              label: "checkboxes",
+              tableView: true,
+              input: true
+            },
+            {
               hidden: false,
               input: true,
               tableView: false,

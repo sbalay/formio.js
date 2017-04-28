@@ -12,6 +12,44 @@
         form.form = {
           components: [
             {
+              conditional: {
+                eq: "",
+                when: null,
+                show: ""
+              },
+              type: "selectboxes",
+              validate: {
+                required: false
+              },
+              clearOnHide: true,
+              hidden: false,
+              persistent: true,
+              protected: false,
+              inline: false,
+              values: [
+                {
+                  label: "sarasa",
+                  value: "sarasa"
+                },
+                {
+                  label: "ueueueue",
+                  value: "ueueueue"
+                },
+                {
+                  label: "trulele",
+                  value: "trulele"
+                },
+                {
+                  label: "cholulo",
+                  value: "cholulo"
+                }
+              ],
+              key: "checkboxes",
+              label: "checkboxes",
+              tableView: true,
+              input: true
+            },
+            {
               hidden: false,
               input: true,
               tableView: false,
@@ -26,18 +64,6 @@
                 {
                   value: "leadDeveloper",
                   label: "Lead Developer"
-                },
-                {
-                  value: "projectArchitect",
-                  label: "Project Architect"
-                },
-                {
-                  value: "techLead",
-                  label: "Tech Lead"
-                },
-                {
-                  value: "scrumMaster",
-                  label: "Scrum Master"
                 },
                 {
                   value: "teamManager",
@@ -64,71 +90,48 @@
               inline: false
             },
             {
-              type: 'textfield',
-              key: 'firstName',
-              label: 'First Name',
-              placeholder: 'Enter your first name.',
-              input: true
-            },
-            {
-              type: 'textfield',
-              key: 'lastName',
-              label: 'Last Name',
-              placeholder: 'Enter your last name',
-              input: true
-            },
-            {
-              type: 'textfield',
-              key: 'lastName',
-              label: 'Last Name',
-              placeholder: 'Enter your last name',
-              input: true
-            },
-            {
-              "hidden": false,
-              "lockKey": true,
-              "conditional": {
-                "eq": "",
-                "when": null,
-                "show": ""
+              hidden: false,
+              lockKey: true,
+              conditional: {
+                eq: "",
+                when: null,
+                show: ""
               },
-              "tags": [
-
-              ],
-              "type": "select",
-              "validate": {
-                "required": false
+              tags: [],
+              type: "select",
+              validate: {
+                required: false
               },
-              "clearOnHide": true,
-              "persistent": true,
-              "unique": false,
-              "protected": false,
-              "multiple": false,
-              "template": "<span>{{ item.label }}</span>",
-              "authenticate": false,
-              "filter": "contains",
-              "refreshOn": "",
-              "defaultValue": "",
-              "valueProperty": "label",
-              "dataSrc": "json",
-              "data": {
-                "custom": "",
-                "resource": "58ff5a0a89315dda3e647a54",
-                "url": "",
-                "values": [
+              clearOnHide: true,
+              persistent: true,
+              unique: false,
+              protected: false,
+              multiple: false,
+              template: "<span>{{ item.label }}</span>",
+              authenticate: false,
+              filter: "contains",
+              refreshOn: "",
+              defaultValue: "",
+              valueProperty: "label",
+              dataSrc: "json",
+              data: {
+                custom: "",
+                resource: "58ff5a0a89315dda3e647a54",
+                url: "",
+                values: [
                   {
-                    "label": "",
-                    "value": ""
+                    label: "",
+                    value: ""
                   }
                 ],
-                "json": '[{ "label": "sarasa4"}, { "label": "sarasa3" }, { "label": "sarasa2" }]',
+                json: '[{ "label": "sarasa4"}, { "label": "sarasa3" }, { "label": "sarasa2" }]',
               },
-              "placeholder": "asd",
-              "key": "role2",
-              "label": "Role",
-              "tableView": true,
-              "input": true,
-              "limit": "4"
+              placeholder: "asd",
+              key: "role2",
+              label: "Role",
+              tableView: true,
+              input: true,
+              limit: "4"
             },
             {
               type: 'button',

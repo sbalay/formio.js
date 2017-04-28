@@ -1,6 +1,6 @@
-import { BaseWithJsonItemsComponent } from '../base/BaseWithJsonItems';
+import { BaseWithDatasourceComponent } from '../base/BaseWithDatasource';
 import _each from 'lodash/each';
-export class RadioComponent extends BaseWithJsonItemsComponent {
+export class RadioComponent extends BaseWithDatasourceComponent {
   elementInfo() {
     let info = super.elementInfo();
     info.type = 'input';

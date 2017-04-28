@@ -5,7 +5,7 @@ import _each from 'lodash/each';
 import _get from 'lodash/get';
 import _isArray from 'lodash/isArray';
 
-export class BaseWithJsonItemsComponent extends BaseComponent {
+export class BaseWithDatasourceComponent extends BaseComponent {
 
   loadItems(url, input, headers, options) {
     let query = {

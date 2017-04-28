@@ -1,10 +1,10 @@
-import { BaseWithJsonItemsComponent } from '../base/BaseWithJsonItems';
+import { BaseWithDatasourceComponent } from '../base/BaseWithDatasource';
 import Choices from 'choices.js';
 import Formio from '../../formio';
 import _each from 'lodash/each';
 import _get from 'lodash/get';
 import _isArray from 'lodash/isArray';
-export class SelectComponent extends BaseWithJsonItemsComponent {
+export class SelectComponent extends BaseWithDatasourceComponent {
   elementInfo() {
     let info = super.elementInfo();
     info.type = 'select';
